@@ -41,7 +41,7 @@ class Enemy(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (random.randint(40, SCREEN_WIDTH - 40), 0)
 
-    def update(self):#создает "нового" врага когда он переходит границы
+    def update(self):
         self.rect.move_ip(0, ENEMTY_STEP)
         if(self.rect.bottom > SCREEN_HEIGHT):
             self.top = 0
@@ -58,8 +58,9 @@ class Player(pygame.sprite.Sprite):
         self.rect = self.image.get_rect()
         self.rect.center = (160, 520)
 
-    def update(self):#движение нашей машины
+    def update(self):
         pressed_keys = pygame.key.get_pressed()
+        
         if self.rect.left > 0:
             if pressed_keys[pygame.K_LEFT]:
                 self.rect.move_ip(-STEP, 0)
