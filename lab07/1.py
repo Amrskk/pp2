@@ -8,14 +8,15 @@ pygame.display.set_caption('Clock')
 clock = pygame.time.Clock()
 FPS = 50
 done = False
-myClock = pygame.image.load('mainclock.png')
+myClock = pygame.image.load("C:/Users/Lenovo/pp2/pp2/lab07/mainclock.png")
+
 myClock = pygame.transform.scale(myClock, (600, 600))
 
 
 
-minute_arrow = pygame.image.load('rightarm.png') 
+minute_arrow = pygame.image.load('C:/Users/Lenovo/pp2/pp2/lab07/rightarm.png') 
 minute_arrow = pygame.transform.scale(minute_arrow, (800, 700))
-second_arrow = pygame.image.load('leftarm.png')
+second_arrow = pygame.image.load('C:/Users/Lenovo/pp2/pp2/lab07/leftarm.png')
 second_arrow = pygame.transform.scale(second_arrow, (40, 500))
 
 
