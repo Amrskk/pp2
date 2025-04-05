@@ -30,7 +30,7 @@ SCORE_COINS = 0 # скок капибар или кошечек собрали
 font = pygame.font.SysFont("Verdana", 60)
 font_small = pygame.font.SysFont("Verdana", 20)
 game_over = font.render("Game Over", True, BLACK)
- 
+victory = font.render("VICTORY", False, BLACK)
 background = pygame.image.load("stuff/AnimatedStreet.png")
  
 #просто белый экран(400,600)
@@ -88,10 +88,7 @@ class Player(pygame.sprite.Sprite):
         
     def move(self):
         pressed_keys = pygame.key.get_pressed()
-       #if pressed_keys[K_UP]:
-            #self.rect.move_ip(0, -5)
-       #if pressed_keys[K_DOWN]:
-            #self.rect.move_ip(0,5)
+   
          
         if self.rect.left > 0:
               if pressed_keys[K_LEFT]:
@@ -156,7 +153,18 @@ while True:
     # если достигли N или больше,  который дал нам юзер, увеличваем скорость врага
     if SCORE_COINS >= N:
         ENEMY_SPEED = 13
-        
+    for coin in coins:
+        if SCORE_COINS == 5:
+            time.sleep(0.5)
+            DISPLAYSURF.fill(GREEN)
+            DISPLAYSURF.blit(victory, (30,250))
+
+            pygame.display.update()
+            for entity in all_sprites:
+                entity.kill() 
+            time.sleep(2)
+            pygame.quit()
+            sys.exit()        
 
     #если случилось столкновение между плэйером и врагом, то выводим gameover 
     if pygame.sprite.spritecollideany(P1, enemies):
@@ -175,3 +183,5 @@ while True:
          
     pygame.display.update()
     FramePerSec.tick(FPS)
+
+    
