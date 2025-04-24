@@ -30,7 +30,7 @@ SCORE_COINS = 0 # скок капибар или кошечек собрали
 font = pygame.font.SysFont("Verdana", 60)
 font_small = pygame.font.SysFont("Verdana", 20)
 game_over = font.render("Game Over", True, BLACK)
-victory = font.render("VICTORY", False, BLACK)
+victory = font.render("VICTORY", True, BLACK)
 background = pygame.image.load("stuff/AnimatedStreet.png")
  
 #просто белый экран(400,600)
@@ -151,20 +151,18 @@ while True:
                 pygame.mixer.Sound('stuff/for_coins.mp3').play()
                 coin.respawn()  # Респавним коин
     # если достигли N или больше,  который дал нам юзер, увеличваем скорость врага
-    if SCORE_COINS >= N:
+    if SCORE_COINS >= 5:
         ENEMY_SPEED = 13
-    for coin in coins:
-        if SCORE_COINS == 5:
-            time.sleep(0.5)
-            DISPLAYSURF.fill(GREEN)
-            DISPLAYSURF.blit(victory, (30,250))
+        time.sleep(0.5)
+        DISPLAYSURF.fill(GREEN)
+        DISPLAYSURF.blit(victory, (30,250))
 
-            pygame.display.update()
-            for entity in all_sprites:
-                entity.kill() 
-            time.sleep(2)
-            pygame.quit()
-            sys.exit()        
+        pygame.display.update()
+        for entity in all_sprites:
+            entity.kill() 
+        time.sleep(2)
+        pygame.quit()
+        sys.exit()        
 
     #если случилось столкновение между плэйером и врагом, то выводим gameover 
     if pygame.sprite.spritecollideany(P1, enemies):
@@ -180,6 +178,7 @@ while True:
           time.sleep(2) # через 2 сек выходим
           pygame.quit()
           sys.exit()        
+            
          
     pygame.display.update()
     FramePerSec.tick(FPS)
