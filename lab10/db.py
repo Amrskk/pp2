@@ -7,14 +7,15 @@ conn = psycopg2.connect("postgresql://neondb_owner:npg_Tow97uEgYpAQ@ep-old-star-
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
-
-#cur.execute(""""CREATE TABLE IF NOT EXISTS phonebook (
-#        id SERIAL PRIMARY KEY,
-#        first_name VARCHAR(50),
-#        last_name VARCHAR(50),
-#       phone VARCHAR(50)
-#   )
-#""")
+# Create table
+cur.execute("""
+    CREATE TABLE phonebook (
+        id SERIAL PRIMARY KEY,
+        first_name VARCHAR(50),
+        last_name VARCHAR(50),
+        phone VARCHAR(50)
+    )
+""")
 
 # Commit changes
 conn.commit()
