@@ -10,7 +10,6 @@ level = 0
 conn = psycopg2.connect("postgresql://neondb_owner:npg_Tow97uEgYpAQ@ep-old-star-a22l0fgh-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require")
 cur = conn.cursor()
 
-
 cur.execute("""CREATE TABLE IF NOT EXISTS snakegame (
     username VARCHAR(255),
     user_score INT,
