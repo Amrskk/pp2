@@ -8,14 +8,13 @@ conn = psycopg2.connect("postgresql://neondb_owner:npg_Tow97uEgYpAQ@ep-old-star-
 cur = conn.cursor()
 
 
-cur.execute("""
-    CREATE TABLE phonebook (
-        id SERIAL PRIMARY KEY,
-        first_name VARCHAR(50),
-        last_name VARCHAR(50),
-        phone VARCHAR(50)
-    )
-""")
+#cur.execute(""""CREATE TABLE IF NOT EXISTS phonebook (
+#        id SERIAL PRIMARY KEY,
+#        first_name VARCHAR(50),
+#        last_name VARCHAR(50),
+#       phone VARCHAR(50)
+#   )
+#""")
 
 # Commit changes
 conn.commit()
@@ -58,5 +57,6 @@ def delete_data(id):
     conn.commit()
 
 
-
-insert_data("John", "Doe", "123-456-7890")
+#insert_data(f"first_name, last_name, phone")
+#enter_data()
+update_data(2, "amirr", "14-24-25")

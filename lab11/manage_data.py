@@ -5,7 +5,7 @@ from db import get_records_by_pattern, insert_or_update_user, insert_many_users,
 
 
 # Connect to your postgres DB
-conn = psycopg2.connect("postgres://pp2_db_test_user:lfFfLH7HjK2ivnEzcN1ZokpgdhFi3WEZ@dpg-cohofjtjm4es739ccgn0-a.oregon-postgres.render.com/pp2_db_test", sslmode='require')
+conn = psycopg2.connect("postgresql://neondb_owner:npg_Tow97uEgYpAQ@ep-old-star-a22l0fgh-pooler.eu-central-1.aws.neon.tech/neondb?sslmode=require")
 # Open a cursor to perform database operations
 cur = conn.cursor()
 
@@ -21,7 +21,7 @@ userlist = [
 # insert_many_users(userlist)
 
 # get_records_by_pattern("Te")
-insert_or_update_user("New", "User", "12345678")
+insert_or_update_user("")
 
 
 # upload_csv("./numbers.csv")
